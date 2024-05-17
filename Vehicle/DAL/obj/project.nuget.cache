@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3sCjZa43MVRS2CHq3nGKPfQjbfYjq5pA/yhh+QdG4LLelde3OAR12xT5oJhp+WG2KNFcM3nzNYkOjTIGmyth9g==",
+  "dgSpecHash": "7Gr4DJasdyAse9vbOxIcA2uMBaEZt7HIfR6wrHWOYyLmseLBuaYUKucth05Jfmh7j2MVWyW9E50BNDSjZcUpVg==",
   "success": true,
-  "projectFilePath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\DAL\\DAL.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\DevWorking\\C#\\Vehicles\\DAL\\DAL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\densh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
