@@ -32,7 +32,8 @@ public class MailService : IMailService
             mailMessage.Subject = $"Information about your operation with vehicle.";
 
             var body = $"Operation code: {operation.OperationCode}\n" +
-                       $"Operation name: {operation.OperationName}}";
+                       $"Operation name: {operation.OperationName}\n" +
+                       $"New regestration number: {operation.NumberRegNew}";
             
             mailMessage.Body = body;
        

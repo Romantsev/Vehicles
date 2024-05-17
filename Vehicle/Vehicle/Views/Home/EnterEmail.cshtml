@@ -1,0 +1,16 @@
+﻿@using Vehicles.ViewModels;
+@model SendMailViewModel;
+@{
+    ViewData["Title"] = "EnterEmail";
+}
+
+<h1>EnterEmail</h1>
+
+<form asp-action="SendEmail" asp-method="post"> 
+    <input type="hidden" asp-for="@Model.OperationId" 
+        class="form-control" />
+    <input type="text" asp-for="@Model.Email" 
+        placeholder="Email" class="form-control" />
+
+    <input class="btn btn-primary mx-2" type="submit" value="Send" />
+</form>

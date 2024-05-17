@@ -1,8 +1,172 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Vehicles.ViewModels.IndexViewModel
+@using System.Text.Json
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<style>
+    body, html, main, .container {
+        margin: 5px;
+        padding: 0;
+        width:  100%;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th, td {
+        text-align: left;
+        border: 1px solid #dddddd;
+        padding: 8px;
+        word-wrap: break-word;
+        max-width: 350px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    thead {
+        background-color: #a5f1ff;
+        color: black;
+    }
+   
+    .dataTables_filter {
+        display:  none;
+        }
+</style>
+
+
+<div class="d-flex">
+    <form asp-action="SearchOperation" method="post">
+        <div class="input-field d-flex col-12">
+            <div class="d-flex flex-column justify-content-end px-2 col-4">
+                <h5 class="mt-3">Search:</h5>
+                <div class="">
+                    <input type="text" asp-for="@Model.Model" placeholder="Model" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="d-flex flex-column justify-content-end px-2 col-4">
+                <h5 class="mt-3">Filter by made year</h5>
+                <div class="input-field d-flex">
+                    <div class="px-1">
+                        <label>From:</label>
+                        <input type="number" min="1910" max="2050" asp-for="@Model.FromYear" name="fromYear" class="form-control">
+                    </div>
+                    <div class="px-1">
+                        <label>To:</label>
+                        <input type="number" min="1910" max="2050" asp-for="@Model.ToYear" name="toYear" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex flex-column justify-content-end">
+                <input class="btn btn-primary mx-2" type="submit" value="Search"/>
+            </div>
+
+        </div>
+    </form>
+    <form asp-action="GenerateReport" method="post">
+        <div class="d-flex flex-column justify-content-end">
+            <input type="hidden" name="operations" value='@JsonSerializer.Serialize(Model.Operations)' />
+            <input class="btn btn-primary mx-2" type="submit" value="PDF"/>
+        </div>
+        
+    </form>
 </div>
+
+
+<div style="margin-bottom: 20px;"></div>
+
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th >ID</th>
+            <th >Person</th>
+            <th >KOATUU</th>
+            <th >
+                <div>Operation_code</div>
+            </th>
+            <th >Operation Name</th>
+            <th >
+                <div>Date Registered</div>
+            </th>
+            <th >Department Code</th>
+            <th >Department Name</th>
+            <th >Brand</th>
+            <th >
+                <div>Model</div>
+            </th>
+            <th >
+                <div>Vin</div>
+            </th>
+            <th >Make Year</th>
+            <th >Color</th>
+            <th >Kind</th>
+            <th >Body</th>
+            <th>Purpose</th>
+            <th>Fuel</th>
+            <th>Capacity</th>
+            <th>Own Weight</th>
+            <th>Total Weight</th>
+            <th>Num_reg_new</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var operation in Model.Operations)
+        {
+            <tr>
+                <td>
+  
+                    <a type="button" class="btn btn-sm btn-outline-info"
+                       asp-action="EnterEmail"
+                       asp-route-operationId="@operation.OperationId">
+                        Send email
+                    </a>
+
+                    <a type="button" class="btn btn-sm btn-outline-info"
+                        asp-action="Edit"
+                        asp-route-operationId="@operation.OperationId">
+                        Edit
+                    </a>
+                    <a type="button" class="btn btn-sm btn-outline-danger"
+                        asp-action="Delete"
+                        asp-route-operationId="@operation.OperationId">
+                        Delete
+                    </a>
+                </td>
+                <td>@operation.OperationId</td>
+                <td>@operation.Person</td>
+                <td>@operation.RegAddrKoatuu</td>
+                <td>@operation.OperationCode</td>
+                <td>@operation.OperationName</td>
+                <td>@operation.DateReg.ToString("dd.MM.yyyy")</td>
+                <td>@operation.DepCode</td>
+                <td>@operation.DepartmentName</td>
+                <td>@operation.Brand</td>
+                <td>@operation.Model</td>
+                <td>@operation.Vin</td>
+                <td>@operation.MakeYear.ToString("yyyy")</td>
+                <td>@operation.Color</td>
+                <td>@operation.Kind</td>
+                <td>@operation.Body</td>
+                <td>@operation.Purpose</td>
+                <td>@operation.Fuel</td>
+                <td>@operation.Capacity</td>
+                <td>@operation.OwnWeight</td>
+                <td>@operation.TotalWeight</td>
+                <td>@operation.NumberRegNew</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@* </form> *@
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script>
+new DataTable('#example');
+</script>

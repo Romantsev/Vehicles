@@ -1,0 +1,198 @@
+@model Core.Models.Operation
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<h2>Edit</h2>
+<style>
+    .group_elem{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 10%;
+        flex-wrap: wrap;
+    }
+    .form-group {
+        width: 45%;
+        flex: 1;
+    }
+    
+    input{
+        border: 2px black solid;
+    }
+</style>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="OperationId" />
+    
+    <div class="d-flex justify-content-between group_elem" >
+        
+        <div class="form-group">
+            <label asp-for="Person"></label>
+            <input asp-for="Person" class="form-control"/>
+            <span asp-validation-for="Person" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RegAddrKoatuu"></label>
+            <input asp-for="RegAddrKoatuu" class="form-control"/>
+            <span asp-validation-for="RegAddrKoatuu" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="OperationCode"></label>
+            <input asp-for="OperationCode" class="form-control"/>
+            <span asp-validation-for="OperationCode" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OperationName"></label>
+            <input asp-for="OperationName" class="form-control"/>
+            <span asp-validation-for="OperationName" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="DateReg"></label>
+            <input asp-for="DateReg" type="date" class="form-control"/>
+            <span asp-validation-for="DateReg" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="DepCode"></label>
+            <input asp-for="DepCode" class="form-control"/>
+            <span asp-validation-for="DepCode" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DepartmentName"></label>
+            <input asp-for="DepartmentName" class="form-control"/>
+            <span asp-validation-for="DepartmentName" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between  group_elem">
+        <div class="form-group">
+            <label asp-for="Brand"></label>
+            <input asp-for="Brand" class="form-control"/>
+            <span asp-validation-for="Brand" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control"/>
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+    </div>
+
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="Vin"></label>
+            <input asp-for="Vin" class="form-control"/>
+            <span asp-validation-for="Vin" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="MakeYear"></label>
+            <input name="year" type="number" value="2000" class="form-control" min="1900" max="2099" step="1"/>
+            <span asp-validation-for="MakeYear" class="text-danger"></span>
+        </div>
+    </div>
+
+    <hr class="solid">
+
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="Color"></label>
+            <input asp-for="Color" class="form-control"/>
+            <span asp-validation-for="Color" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Kind"></label>
+            <input asp-for="Kind" class="form-control"/>
+            <span asp-validation-for="Kind" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Body"></label>
+            <input asp-for="Body" class="form-control"/>
+            <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Purpose"></label>
+            <input asp-for="Purpose" class="form-control"/>
+            <span asp-validation-for="Purpose" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="Fuel"></label>
+            <input asp-for="Fuel" class="form-control"/>
+            <span asp-validation-for="Fuel" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Capacity"></label>
+            <input asp-for="Capacity" class="form-control"/>
+            <span asp-validation-for="Capacity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <hr class="solid">
+    
+    <div class="d-flex justify-content-between group_elem">
+        <div class="form-group">
+            <label asp-for="OwnWeight"></label>
+            <input asp-for="OwnWeight" class="form-control"/>
+            <span asp-validation-for="OwnWeight" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TotalWeight"></label>
+            <input asp-for="TotalWeight" class="form-control"/>
+            <span asp-validation-for="TotalWeight" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <hr class="solid">
+    
+    <div class="form-group">
+        <label asp-for="NumberRegNew"></label>
+        <input asp-for="NumberRegNew" class="form-control"/>
+        <span asp-validation-for="NumberRegNew" class="text-danger"></span>
+    </div>
+        
+    <hr class="solid">
+    
+    <button  class="btn btn-primary" type="submit">Edit</button>
+</form>
+
+<script >
+$(function() {
+    $( "#datepicker" ).datepicker({dateFormat: 'yy'});
+});
+</script>
