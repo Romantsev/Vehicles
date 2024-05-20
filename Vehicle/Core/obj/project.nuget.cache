@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EPoSvFTMxUSBRpW2efpiOFJlUA1etqg6kz8g3JmdNrD7WnS0TqTFFgxvIFOUdBfOcjibm4voyFvjmQ0xAXVKBA==",
+  "dgSpecHash": "W4Wn2ht2HPL63+M1MFjy1wuRl9KO2zkKOXq97dd7Eel/NX6uuqr6oBArTocwbzbTlasWS++77+ap2S4F5l/iWw==",
   "success": true,
-  "projectFilePath": "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj",
+  "projectFilePath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\densh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

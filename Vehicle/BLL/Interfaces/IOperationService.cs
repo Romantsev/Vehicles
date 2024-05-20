@@ -11,7 +11,5 @@ public interface IOperationService
     Operation GetOperationById(int operationId);
     List<Operation> GetByPredicate(Expression<Func<Operation, bool>> filter = null, 
         Expression<Func<IQueryable<Operation>, IOrderedQueryable<Operation>>> orderBy = null);
-    void ExportToTXT(string path);
-    void ImportFromTXT(string path);
     void ClearAllOperations();
 }

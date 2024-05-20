@@ -72,13 +72,43 @@
             <input type="hidden" name="operations" value='@JsonSerializer.Serialize(Model.Operations)' />
             <input class="btn btn-primary mx-2" type="submit" value="PDF"/>
         </div>
-        
     </form>
+    <form id="exportToTxtForm" asp-action="ExportToTXT" method="post">
+        <div class="d-flex flex-column justify-content-end">
+            <input type="hidden" name="operations" value='@JsonSerializer.Serialize(Model.Operations)' />
+            <input class="btn btn-primary mx-2" type="submit" value="Export txt" />
+        </div>
+    </form>
+
+    <form id="exportToCsvForm" asp-action="ExportToCSV" method="post">
+        <div class="d-flex flex-column justify-content-end">
+            <input type="hidden" name="operations" value='@JsonSerializer.Serialize(Model.Operations)' />
+            <input class="btn btn-primary mx-2" type="submit" value="Export csv" />
+        </div>
+    </form>
+
+    <form asp-action="ImportFromTXT" method="post" enctype="multipart/form-data">
+        <div class="d-flex flex-column justify-content-end">
+            <input type="file" name="file" id="txtImportFile" class="form-control d-none" />
+            <input type="button" class="btn btn-primary mx-2" value="Txt Import" onclick="document.getElementById('txtImportFile').click();" />
+            <input type="submit" class="btn btn-primary mx-2 d-none" id="submitTxtImport" />
+        </div>
+    </form>
+    <form asp-action="ImportFromCSV" method="post" enctype="multipart/form-data">
+        <div class="d-flex flex-column justify-content-end">
+            <input type="file" name="file" id="csvImportFile" class="form-control d-none" />
+            <input type="button" class="btn btn-primary mx-2" value="Csv Import" onclick="document.getElementById('csvImportFile').click();" />
+            <input type="submit" class="btn btn-primary mx-2 d-none" id="submitCsvImport" />
+        </div>
+    </form>
+
 </div>
 
 
 <div style="margin-bottom: 20px;"></div>
-
+<a asp-action="Add" class="btn btn-primary mx-2">
+    Add </a>
+<a asp-action="DeleteAll"  class="btn btn-danger mx-2"> Clear</a>
 <table id="example" class="table table-striped" style="width:100%">
     <thead>
         <tr>
@@ -169,4 +199,12 @@
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <script>
 new DataTable('#example');
+    document.getElementById('txtImportFile').addEventListener('change', function () {
+        document.getElementById('submitTxtImport').click();
+    });
+
+    document.getElementById('csvImportFile').addEventListener('change', function () {
+        document.getElementById('submitCsvImport').click();
+    });
+
 </script>

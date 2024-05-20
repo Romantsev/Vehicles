@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DevWorking\\C#\\Vehicles\\DAL\\DAL.csproj",
+      "projectUniqueName": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "D:\\DevWorking\\C#\\Vehicles\\DAL\\DAL.csproj",
+      "projectPath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\densh\\.nuget\\packages\\",
-      "outputPath": "D:\\DevWorking\\C#\\Vehicles\\DAL\\obj\\",
+      "outputPath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -106,8 +106,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj": {
-              "projectPath": "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj"
+            "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj": {
+              "projectPath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj"
             }
           }
         }
@@ -148,7 +148,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.312\\RuntimeIdentifierGraph.json"
       }
     }
   }

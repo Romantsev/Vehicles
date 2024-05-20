@@ -1,9 +1,5 @@
-using System.Drawing;
-using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using BLL.Interfaces;
-using BLL.Services;
-using Core.Helpers;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -16,12 +12,107 @@ public class HomeController : Controller
     private readonly IOperationService _operationService;
     private readonly IReportService _reportService;
     private readonly IMailService _mailService;
-    public HomeController(IOperationService operationService, IReportService reportService, IMailService mailService)
+    private readonly IFileService _fileService;
+
+    public HomeController(
+        IOperationService operationService, 
+        IReportService reportService, 
+        IMailService mailService, 
+        IFileService fileService
+    )
     {
         _operationService = operationService;
         _reportService = reportService;
         _mailService = mailService;
+        _fileService = fileService;
     }
+
+    [HttpPost]
+    public IActionResult ExportToCSV(string operations)
+    {
+        var filePath = Path.Combine(
+            "..\\DAL\\CsvFolder\\",
+            $"exported_operations_{DateTime.Now:dd_MM_yyyy_HH_mm_ss}.csv"
+            );
+
+        var opList = JsonConvert.DeserializeObject<List<Operation>>(operations);
+        _fileService.ExportToCSV(opList, filePath);
+
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public IActionResult ExportToTXT(string operations)
+    {
+        var filePath = Path.Combine(
+            "..\\DAL\\TxtFolder\\",
+            $"exported_operations_{DateTime.Now:dd_MM_yyyy_HH_mm_ss}.txt"
+        );
+
+        var opList = JsonConvert.DeserializeObject<List<Operation>>(operations);
+        _fileService.ExportToTXT(opList, filePath);
+
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ImportFromCSV(IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest("Please upload a valid TXT file.");
+        }
+        var filePath = Path.Combine("..\\DAL\\CsvFolder", file.FileName);
+        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        var operations = _fileService.ImportFromCSV(filePath);
+        foreach (var operation in operations)
+        {
+            operation.OperationId = _operationService
+                .GetByPredicate()
+                .ToList()
+                .Max(op => op.OperationId) + 1;
+            _operationService.AddOperation(operation);
+        }
+
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ImportFromTXT(IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest("Please upload a valid TXT file.");
+        }
+
+        var filePath = Path.Combine("..\\DAL\\TxtFolder", file.FileName);
+
+        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        var operations = _fileService.ImportFromTXT(filePath);
+        foreach (var operation in operations)
+        {
+            operation.OperationId = _operationService
+                .GetByPredicate()
+                .ToList()
+                .Max(op => op.OperationId) + 1;
+            _operationService.AddOperation(operation);
+        }
+
+        return RedirectToAction("Index");
+    }
+
 
     [HttpGet]
     public IActionResult Index()

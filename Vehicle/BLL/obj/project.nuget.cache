@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mW29nKLe1Sr/+B9wkd3Kl8JAwuawRrSW/4o8n+BD/34C1AXeAyT3d31yXAiwXCbXIAroof9idhQJ4VXnOqZfRA==",
+  "dgSpecHash": "9py09XJED2GIzVeCOxw5XYQtOxRLSeinncF/jtgSKgX+qcQXYVZGQk7+JSCAjPZ2k7T9XMlTXrAolam+89/wgA==",
   "success": true,
-  "projectFilePath": "D:\\DevWorking\\C#\\Vehicles\\BLL\\BLL.csproj",
+  "projectFilePath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\densh\\.nuget\\packages\\csvhelper\\32.0.3\\csvhelper.32.0.3.nupkg.sha512",
     "C:\\Users\\densh\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\densh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\densh\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",

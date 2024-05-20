@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj": {}
+    "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj": {}
   },
   "projects": {
-    "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj": {
+    "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\DevWorking\\C#\\Vehicles\\Core\\Core.csproj",
+        "projectPath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\densh\\.nuget\\packages\\",
-        "outputPath": "D:\\DevWorking\\C#\\Vehicles\\Core\\obj\\",
+        "outputPath": "D:\\DevWorking\\C#\\reprost\\Vehicles\\Vehicle\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -23,8 +23,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0",
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -34,10 +33,6 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
-          },
-          "net8.0": {
-            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -77,33 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
-        },
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.312\\RuntimeIdentifierGraph.json"
         }
       }
     }

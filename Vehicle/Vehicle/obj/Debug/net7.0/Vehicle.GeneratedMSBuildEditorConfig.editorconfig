@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\DevWorking\C#\reprost\Vehicles\Vehicle\Vehicle
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/DevWorking/C\#/reprost/Vehicles/Vehicle/Vehicle/Views/Home/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DevWorking/C\#/reprost/Vehicles/Vehicle/Vehicle/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DevWorking/C\#/reprost/Vehicles/Vehicle/Vehicle/Views/Home/EnterEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbnRlckVtYWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DevWorking/C\#/reprost/Vehicles/Vehicle/Vehicle/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

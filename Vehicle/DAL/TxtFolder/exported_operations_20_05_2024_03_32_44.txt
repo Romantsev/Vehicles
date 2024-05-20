@@ -1,0 +1,1 @@
+{"OperationId":908,"Person":"1","RegAddrKoatuu":"1","OperationCode":1,"OperationName":"1","DateReg":"2004-01-01T00:00:00","DepCode":"1","DepartmentName":"1","Brand":"1","Model":"ASDSA","Vin":"1","MakeYear":"2004-01-01T00:00:00","Color":"1","Kind":"1","Body":"1","Purpose":"1","Fuel":"1","Capacity":1,"OwnWeight":1,"TotalWeight":1,"NumberRegNew":"1"}

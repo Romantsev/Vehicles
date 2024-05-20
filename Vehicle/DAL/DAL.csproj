@@ -14,4 +14,9 @@
       <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="CsvFolder\" />
+      <Folder Include="TxtFolder\" />
+    </ItemGroup>
+
 </Project>

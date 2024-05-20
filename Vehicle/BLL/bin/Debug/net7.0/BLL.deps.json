@@ -9,12 +9,21 @@
       "BLL/1.0.0": {
         "dependencies": {
           "Core": "1.0.0",
+          "CsvHelper": "32.0.3",
           "DAL": "1.0.0",
           "DinkToPdf": "1.0.8",
           "Microsoft.Extensions.Options": "8.0.2"
         },
         "runtime": {
           "BLL.dll": {}
+        }
+      },
+      "CsvHelper/32.0.3": {
+        "runtime": {
+          "lib/net7.0/CsvHelper.dll": {
+            "assemblyVersion": "32.0.0.0",
+            "fileVersion": "32.0.3.22"
+          }
         }
       },
       "DinkToPdf/1.0.8": {
@@ -744,6 +753,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CsvHelper/32.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JNDkd4Wc2Tim5IuyL8Ai13RhzRvaHItseEvlJ2YRkx2SMBFrIsW8a5+/o4/O1jsb6mlviihR6Hfyn+nqY6CurA==",
+      "path": "csvhelper/32.0.3",
+      "hashPath": "csvhelper.32.0.3.nupkg.sha512"
     },
     "DinkToPdf/1.0.8": {
       "type": "package",
