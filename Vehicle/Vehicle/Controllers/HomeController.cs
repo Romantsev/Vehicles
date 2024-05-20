@@ -73,10 +73,20 @@ public class HomeController : Controller
         var operations = _fileService.ImportFromCSV(filePath);
         foreach (var operation in operations)
         {
-            operation.OperationId = _operationService
+            if(_operationService
                 .GetByPredicate()
-                .ToList()
-                .Max(op => op.OperationId) + 1;
+                .ToList().Count == 0)
+            {
+                operation.OperationId = 1;
+            }
+            else
+            {
+                operation.OperationId = _operationService
+                    .GetByPredicate()
+                    .ToList()
+                    .Max(op => op.OperationId) + 1;
+            }
+
             _operationService.AddOperation(operation);
         }
 
@@ -103,10 +113,19 @@ public class HomeController : Controller
         var operations = _fileService.ImportFromTXT(filePath);
         foreach (var operation in operations)
         {
-            operation.OperationId = _operationService
+            if (_operationService
                 .GetByPredicate()
-                .ToList()
-                .Max(op => op.OperationId) + 1;
+                .ToList().Count == 0)
+            {
+                operation.OperationId = 1;
+            }
+            else
+            {
+                operation.OperationId = _operationService
+                    .GetByPredicate()
+                    .ToList()
+                    .Max(op => op.OperationId) + 1;
+            }
             _operationService.AddOperation(operation);
         }
 

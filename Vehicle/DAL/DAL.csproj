@@ -16,7 +16,7 @@
 
     <ItemGroup>
       <Folder Include="CsvFolder\" />
-      <Folder Include="TxtFolder\" />
+      <Folder Include="Repositories\TxtFolder\" />
     </ItemGroup>
 
 </Project>

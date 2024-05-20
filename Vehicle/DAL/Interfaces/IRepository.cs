@@ -11,5 +11,5 @@ public interface IRepository
     void Delete(int itemId);
     Operation? FindById(int id);
     void RemoveAll();
-    void SaveChanges();
+    Task SaveChangesAsync();
 }

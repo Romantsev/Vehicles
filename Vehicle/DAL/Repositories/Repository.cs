@@ -14,27 +14,27 @@ namespace DAL.Repositories
         public Repository(string filePath)
         {
             _filePath = filePath;
-            LoadData();
+            LoadDataAsync().Wait();
         }
 
         public void Add(Operation item)
         {
             _items.Add(item);
-            SaveChanges();
+            SaveChangesAsync().Wait();
         }
 
         public void AddRange(List<Operation> items)
         {
             _items.AddRange(items);
-            SaveChanges();
+            SaveChangesAsync().Wait();
         }
-        
+
         public void Edit(Operation item)
         {
             var existingItem = _items.Find(i => i.OperationId == item.OperationId);
-            
+
             if (existingItem == null) return;
-            
+
             existingItem.OperationCode = item.OperationCode;
             existingItem.OperationName = item.OperationName;
             existingItem.DateReg = item.DateReg;
@@ -54,8 +54,8 @@ namespace DAL.Repositories
             existingItem.DepartmentName = item.DepartmentName;
             existingItem.Person = item.Person;
             existingItem.RegAddrKoatuu = item.RegAddrKoatuu;
-            
-            SaveChanges();
+
+            SaveChangesAsync().Wait();
         }
 
         public void Delete(int itemId)
@@ -63,23 +63,23 @@ namespace DAL.Repositories
             var item = _items.Find(i => i.OperationId == itemId);
             if (item == null) return;
             _items.Remove(item);
-            SaveChanges();
+            SaveChangesAsync().Wait();
         }
 
         public Operation? FindById(int id)
         {
             return _items.Find(i => i.OperationId == id);
         }
-        
+
         public void RemoveAll()
         {
             _items.Clear();
-            SaveChanges();
+            SaveChangesAsync().Wait();
         }
-        
-        public void SaveChanges()
+
+        public async Task SaveChangesAsync()
         {
-            SaveData();
+            SaveDataAsync().Wait();
         }
 
         public List<Operation> GetAllAsList()
@@ -87,12 +87,16 @@ namespace DAL.Repositories
             return _items;
         }
 
-        private void LoadData()
+        private async Task LoadDataAsync()
         {
             if (File.Exists(_filePath))
             {
-                var json = File.ReadAllText(_filePath);
-                _items = JsonConvert.DeserializeObject<List<Operation>>(json);
+                using (var stream = new FileStream(_filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (var reader = new StreamReader(stream))
+                {
+                    var json = await reader.ReadToEndAsync();
+                    _items = JsonConvert.DeserializeObject<List<Operation>>(json);
+                }
             }
             else
             {
@@ -100,10 +104,15 @@ namespace DAL.Repositories
             }
         }
 
-        private void SaveData()
+        private async Task SaveDataAsync()
         {
             var json = JsonConvert.SerializeObject(_items, Formatting.Indented);
-            File.WriteAllText(_filePath, json);
+            using (var stream = new FileStream(_filePath, FileMode.Create, FileAccess.Write, FileShare.Read))
+            using (var writer = new StreamWriter(stream))
+            {
+                await writer.WriteAsync(json);
+            }
         }
     }
+
 }
